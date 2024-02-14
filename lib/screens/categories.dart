@@ -9,14 +9,10 @@ import 'package:receipts/widgets/category_grid_item.dart';
 class CategoriesScreen extends StatelessWidget {
   CategoriesScreen({
     super.key,
-    required this.setFavoriteStats,
     required this.avaliableMeals,
-    this.favoriteList = const []
   });
 
-  final Function(Meal meal) setFavoriteStats;
   final List<Meal> avaliableMeals;
-  List<Meal> favoriteList;
 
   void _selectedCategory(BuildContext context, Category category) {
     final filteredMeals = avaliableMeals
@@ -29,8 +25,6 @@ class CategoriesScreen extends StatelessWidget {
         builder: (ctx) => MealsScreen(
           title: category.title,
           meals: filteredMeals,
-          setFavoriteStats: setFavoriteStats,
-          favoriteList: favoriteList,
         ),
       ),
     );
